@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="form-window">
+    <div class="wrapper">
+        <form method="POST" class="form-registration">
+            <h1>Оформление заказа</h1>
+            <div class="not-match">{{ form.non_field_errors }}</div>
+            {% csrf_token %}
+            {% for f in form %}
+            <div class="form-description">
+                {{ f }}
+            </div>
+            {% if f.errors %}
+                <div class="form-errors">{{ f.errors }}</div>
+            {% endif %}
+            {% endfor %}
+            <button type="submit" class="form-btn">Заказать</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
