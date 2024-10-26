@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <main class="main">
+        <div class="main-photo">
+            {% if object.img %}
+                <img src="{{ object.img.url }}">
+            {% endif %}
+        </div>
+        <div class="main-details">
+            <h1 class="main-details-title">
+                {{ object.name }}
+            </h1>
+            <p class="main-details-description">
+                {{ object.description }}
+            </p>
+        <div class="main-price">
+            <span class="main-price-price">
+                {% if product.discount|default:0 %}
+                    <div class="main-price-total">{{ product.total_price }} &#8381;</div>
+                    <div class="main-price-discount">
+                        -{{ product.discount }}%
+                    </div>
+                    <div class='main-price-first'>{{ product.price }} &#8381;</div>
+                {% else %}
+                    <div class="main-price-total">{{ product.price }} &#8381;</div>
+                {% endif %}    
+            </span>
+            <div class="main-details-price">
+                {% if product.count %}
+                <a href="{% url "carts:cart_add" %}" class="add-to-cart" data-product-id={{ product.id }}>
+                    {% csrf_token %}
+                    Добавить в корзину
+                </a>
+                {% else %}
+                Нет в наличии
+                {% endif %}
+            </div>
+        </div>
+        </div>
+    </main>
+</div>
+{% endblock content %}
+
