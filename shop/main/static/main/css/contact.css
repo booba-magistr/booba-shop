@@ -1,0 +1,43 @@
+#contact-data {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+}
+
+.contact-background {
+    display: flex;
+    margin-bottom: 30px;
+    padding: 5px 40px;
+    justify-content: space-between;
+    height: 300px;
+    width: 1100px;
+    background-color: rgb(233, 177, 75);
+    border-radius: 14px;
+}
+
+.contact-img {
+    background-color: red;
+    height: 100%;
+}
+
+.contact-img img {
+    height: 100%;
+}
+
+.contact-description {
+    width: 700px;
+    text-align: center;
+    color: white;
+}
+
+.contact-name {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.contact-contact {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 20px;
+    line-height: 30px;
+}

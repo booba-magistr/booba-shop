@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="stuff">
+    {% for s in stuff %}
+    <div class="personal">
+        <div class="personal-img">
+            {% if s.img %}
+            <img src="{{ s.img.url }}" alt="">
+            {% endif %}
+        </div>
+        <div class="personal-description">
+            <p class='personal-name'>{{s.name}}</p>
+            <div style="text-align:justify;line-height: 1.3em;">
+                {{ s.description }}
+            </div>
+            <div class='personal-contact'>
+                <p>Контакты:</p>
+                <p>email: {{s.email}}</p>
+                <p>телефон: {{s.phone_number}}</p>
+            </div>
+        </div>    
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+

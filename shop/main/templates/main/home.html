@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load carts_tags %}
+{% load static %}
+
+{% block content %}
+<div id='main'>
+    <div class="main-wrapper">
+        {% for i in info %}
+        <div class="main-name-img">
+            <div class="main-name">Booba Shop</div>
+            <div class="main-img">
+                <img src="{% static "main/images/boobateam.jpg" %}" alt="">
+            </div>
+        </div>
+        {% endfor %}
+        <div class="shop-description">
+            <ul>
+                <li>Преобразите свою жизнь с помощью нашей качественной мебели, 
+                    которая принесет уют и комфорт в ваш дом!
+                </li>
+                <li>
+                    Широкий ассортимент стильной мебели по доступным ценам – 
+                    мы поможем вам создать идеальный интерьер!
+                </li>
+                <li>
+                    Надежные материалы, современный дизайн и высокое качество – 
+                    у нас вы найдете все для уюта и комфорта вашего дома!
+                </li>
+                <li>
+                    Большой выбор мебели для гостиной, спальни, кухни и детской комнаты – мы предлагаем все, 
+                    что нужно для создания уютного и функционального пространства!
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
