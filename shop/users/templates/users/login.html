@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div id="form-window">
+    <div class="wrapper">
+        <form method="POST" class="form-registration">
+            <h1>Вход</h1>
+            <div class="not-match">{{ form.non_field_errors }}</div>
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {% for f in form %}
+            <div class="form-description">
+                {{ f }}
+            </div>
+            <div class="form-errors">{{ f.errors }}</div>
+            {% endfor %}
+            <div class="forgot-password">
+                <ol>
+                    <li><a href="{% url "user:password_reset" %}">Забыли пароль?</a></li>
+                    <li><a href="{% url "user:registration" %}">Регистрация</a></li>
+                </ol>
+            </div>
+            <button type="submit" class="form-btn">Войти</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

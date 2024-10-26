@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load carts_tags %}
+
+
+{% block content %}
+<section class="cart-section">
+    <div class='cart-main'>
+        <div class="header">
+            <div class="cart-container">
+                <h1>Моя корзина</h1>
+            </div>
+        </div>
+        <div class="cart-body">
+            <div class="cart-container">
+                <section class="cart">
+                    <div class="cart-header">
+                        <ul>
+                            <li>Наименование</li>
+                            <li>Количество</li>
+                            <li>Стоимость</li>
+                        </ul>
+                    </div>
+                    {% user_carts request as carts %}
+                {% if carts %}
+                    <div class="cart-product">
+                        {% for cart in carts %}
+                        <div class="cart-product__img">
+                            {% if cart.product.img %}
+                                <a href="{{ cart.product.get_absolute_url }}"><img src="{{ cart.product.img.url }}"></a>
+                            {% endif %}
+                        </div>
+                        <div class="cart-product__name">
+                            {{ cart.product.name }}
+                        </div>
+                        <div class="cart-product__count">
+                            <div class="count__box">
+                                <input type="number" class="count__input number" value="{{ cart.quantity }}" min="1" max="cart.product.count">
+                            </div>
+                            <div class="count__controls">
+                                <button type="button" class="count__up"
+                                data-cart-id="{{cart.id}}"
+                                data-count-url="{% url "carts:cart_change" %}">
+                                {% csrf_token %}
+                                &#9650;
+                                </button>
+                                <button type="button" class="count__down"
+                                data-cart-id="{{cart.id}}"
+                                data-count-url="{% url "carts:cart_change" %}">
+                                {% csrf_token %}
+                                &#9660;
+                                </button>
+                            </div>
+                        </div>
+                        <div class="cart-product__price">
+                            {{ cart.product_price }} &#8381;
+                        </div>
+                        <div class="cart-product__remove">
+                            <a href="{% url "carts:cart_remove" %}" class="cart-product__remove-btn" 
+                            data-cart-id="{{cart.id}}">
+                            {% csrf_token %}
+                            &times;
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div>
+                        <div class="carts__empty">
+                            Корзина пуста
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="cart-footer">
+                        <ul>
+                            <li>Количество: {{carts.total_quantity}}</li>
+                            <li>Итого: {{carts.total_goods_price}} &#8381;</li>
+                            {% if carts %}
+                            <li>
+                                <a href="{% url "order:create_order" %}" class="cart-footer-btn">Оформить заказ</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

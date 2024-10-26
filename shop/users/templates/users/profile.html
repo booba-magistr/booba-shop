@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load order_list %}
+
+
+{% block content %}
+<div class="profile-background">
+    <div class="profile">
+        <div id="form-window position">
+            <div class="wrapper">
+                <form method="POST" class="form-registration">
+                    <h1>Редактирование профиля</h1>
+                    <div class="not-match">{{ form.non_field_errors }}</div>
+                    {% csrf_token %}
+                    {% for f in form %}
+                    <div class="form-description">
+                        {{ f }}
+                    </div>
+                    <div class="form-errors">{{ f.errors }}</div>
+                    {% endfor %}
+                    <div class="change-password">
+                        <a href="{% url "user:password_change" %}">Изменить пароль</a>
+                    </div>
+                    <button type="submit" class="form-btn">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% get_order_list request as orders %}
+    <div class="order-background">
+        <div class="order-background-title">
+            Мои заказы
+        </div>
+        {% if orders %}
+        {% for order in orders %}
+        <div class="order">
+            <div class="order-title">
+                <div class="order-info">
+                    <div class="order-title-name">
+                        {{ order.user.last_name }} {{ order.user.first_name }}
+                    </div>
+                    <div class="order-title-status">
+                        Статус заказа: {% if order.status %}Готов{% else %}Заказ готовится{% endif %}
+                    </div>
+                </div>
+                <div class="order-time-create">
+                    Дата оформления заказа: {{ order.time_create|date:'d.m.Y' }}
+                </div>
+            </div>
+            {% for detail in order.orderitem_set.all %}
+            <div class="order-description">
+                <div>
+                    <a href="{{ detail.product.get_absolute_url }}"><img src="{{detail.product.img.url}}" alt=""></a>
+                </div>
+                <div class="order-description-details">
+                    <p>{{ detail.name }}</p>
+                    <p>Количество: {{ detail.quantity }} шт.</p>
+                    <p>Итого: {{ detail.products_price }} ₽</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="empty-cart">
+            Корзина пуста
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
