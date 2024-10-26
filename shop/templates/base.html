@@ -1,0 +1,82 @@
+{% load static %}
+{% load goods_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type='text/css' rel="stylesheet" href="{% static "main/css/base.css" %}">
+    <link type='text/css' rel="stylesheet" href="{% static "main/css/home.css" %}">
+    <link type='text/css' rel="stylesheet" href="{% static "main/css/about.css" %}">
+    <link type='text/css' rel="stylesheet" href="{% static "goods/css/catalog.css" %}">
+    <link type='text/css' rel="stylesheet" href="{% static "goods/css/product.css" %}">
+    <link type='text/css' rel="stylesheet" href="{% static "users/css/login.css" %}">
+    <link type='text/css' rel="stylesheet" href="{% static "users/css/registration.css" %}">
+    <link type='text/css' rel="stylesheet" href="{% static "users/css/password_reset_complete.css" %}">
+    <link type='text/css' rel="stylesheet" href="{% static "users/css/password_reset_done.css" %}">
+    <link type='text/css' rel="stylesheet" href="{% static "users/css/user-cart.css" %}">
+    <link type='text/css' rel="stylesheet" href="{% static 'main/css/contact.css' %}">
+    <link type='text/css' rel="stylesheet" href="{% static 'comments/css/create_review.css' %}">
+    <link type='text/css' rel="stylesheet" href="{% static "users/css/profile.css" %}">
+    <script type="text/javascript" src="{% static "goods/js/jquery/jquery-3.7.0.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "goods/js/jquery-ajax.js" %}"></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "main/images/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "main/images/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "main/images/favicon-16x16.png" %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class='page'>
+        <nav id='header'>
+            <ul id='nav'>
+                <li><a href="{% url "home" %}">Главная</a></li>
+                {% get_categories as categories %}
+                {% for category in categories %}
+                {% if forloop.last %}
+                <li><a href="{% url "goods:category" category.slug %}">Каталог</a></li>
+                {% endif %}
+                {% endfor %}
+                <li><a href="#">Информация &bigtriangledown;</a>
+                    <ul class='info'>
+                        <li><a href="{% url "about" %}">Сотрудники</a></li>
+                        <li><a href="{% url "contact" %}">Контактная информация</a></li>
+                    </ul>
+                </li> 
+                <li><a href="{% url "review:reviews" %}">Отзывы</a></li> 
+                <li><a href="{% url "user:user_cart" %}">Корзина</a></li>
+            </ul>
+            <ul class='login'>
+                {% if user.is_authenticated %}
+                {% if not user.is_superuser %}
+                <li><a href="{% url "user:profile" %}">{{user.first_name}}</a></li>
+                <li>
+                    <form action="{% url "user:logout" %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-logout">Выйти</button>
+                    </form>
+                </li>
+                {% else %}
+                <li><a href="{% url "admin:index" %}">Администратор</a></li>
+                <li>
+                    <form action="{% url "user:logout" %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-logout">Выйти</button>
+                    </form>
+                </li>
+                {% endif %}
+                {% elif user.username == root %}
+                <li><a href="#">Админ</a></li>
+                {% else %}
+                <li><a href="{% url "user:registration" %}">Регистрация</a></li>
+                <li><a href="{% url "user:login" %}">Войти</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% block content %}
+        {% endblock %}
+        <div id='footer'>
+            <a href='https://vk.com/id573277029' class='main_text' target='_blank'>Copyright &#xa9; booba-magistr 2024</a>
+        </div>
+    </div>
+</body>
+</html>
