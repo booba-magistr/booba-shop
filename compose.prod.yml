@@ -1,0 +1,41 @@
+services:
+  web:
+    build:
+      context: ./shop_ajax
+      dockerfile: Dockerfile.prod
+    image: shop_prod:1.0.0
+    command: gunicorn shop.wsgi:application --bind 0.0.0.0:8000 --access-logfile "-"
+    expose:
+      - 8000
+    env_file:
+      - ./shop_ajax/.env.prod
+    volumes:
+      - static_volume:/usr/src/app/static
+      - media_volume:/usr/src/app/media
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=booba
+      - POSTGRES_PASSWORD=654321Qw
+      - POSTGRES_DB=shop
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  nginx:
+    build: ./nginx
+    image: nginx_prod:1.0.0
+    volumes:
+      - media_volume:/app/media
+      - static_volume:/app/static
+    ports:
+      - 8001:80
+    depends_on:
+      - web
+
+volumes:
+  data:
+  static_volume:
+  media_volume:

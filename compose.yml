@@ -1,0 +1,42 @@
+services:
+  web:
+    build: ./shop_ajax
+    image: shop:1.0.0
+    container_name: shop
+    develop:
+      watch:
+        - action: sync
+          path: ./shop_ajax
+          target: /usr/src/app
+        - action: rebuild
+          path: ./shop_ajax/requirements.txt
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 127.0.0.1:8000:8000
+    env_file:
+      - ./shop_ajax/.env
+  
+  db:
+    image: postgres:16-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=booba
+      - POSTGRES_PASSWORD=654321Qw
+      - POSTGRES_DB=shop
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    ports:
+      - 8080:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=booba@mail.ru
+      - PGADMIN_DEFAULT_PASSWORD=1234
+    depends_on:
+      - db
+
+
+volumes:
+  data:
