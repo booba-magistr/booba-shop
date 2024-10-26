@@ -1,0 +1,13 @@
+[
+{
+  "model": "main.contact",
+  "pk": 1,
+  "fields": {
+    "name": "ООО \"Буба Шоп\"",
+    "phone_number": "84159782643",
+    "email": "booba-shop@mail.ru",
+    "address": "г. Москва, Пресненская набережная, д. 4, стр. 2, башня «Эволюция»",
+    "img": "goods__img/tower.jpg"
+  }
+}
+]

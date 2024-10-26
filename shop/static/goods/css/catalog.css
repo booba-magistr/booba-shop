@@ -1,0 +1,241 @@
+#tags {
+    display: flex;
+    margin-top: 90px;
+    width: 1400px;
+}
+
+.tags-position {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#tags ol li {
+    float: left;
+    transform: skew(-18deg);
+}
+
+#tags a {
+    display: inline;
+    background-color: rgb(233, 177, 75);
+    padding: 3px;
+    font-size: 18px;
+    color: white;
+    position: relative;
+    z-index: 0;
+}
+
+#tags a:hover {
+    background-color: rgb(201, 149, 54);
+}
+
+#tags li:not(:last-of-type) {
+    margin-right: 10px;
+}
+
+.search-goods {
+    position: absolute;
+    margin-left: 1010px;
+    transform: translateY(-33%);
+}
+
+.search-string {
+    font-size: 15px;
+    padding: 5px;
+    width: 300px;
+}
+
+.form-position {
+    display: flex;
+    justify-content: center;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.filters-choice {
+    float: left;
+    margin: 10px;
+}
+
+.filters-btn {
+    margin: auto 0;
+    margin: 10px;
+    border: none;
+    color: white;
+    padding: 8px 10px;
+    font-size: 15px;
+    background-color: rgb(233, 177, 75);
+    cursor: pointer;
+    border-radius: 10px;
+    align-items: 50px;
+    transition: background-color 0.3s linear;
+}
+
+.filters-btn:hover {
+    background-color: rgb(201, 149, 54);
+}
+
+.card {
+    background-color: white;
+    width: 330px;
+    min-height: 300px;
+    border-radius: 20px;
+    align-items: center;
+    box-shadow: 1px 3px 15px rgb(148, 123, 114);
+    margin: 20px;
+    flex-direction: column;
+    position: relative;
+    transition: 0.2s;
+}
+
+.card:hover {
+    box-shadow: 3px 5px 30px rgb(148, 123, 114);
+}
+
+.card__top {
+    flex: 0 0 220px;
+    position: relative
+}
+
+.card__discount {
+    position: absolute;
+    bottom: 8px;
+    left: 4px;
+    padding: 4px 8px;
+    background-color: rgb(255, 72, 0);
+    color: white;
+    border-radius: 5px;
+}
+
+.card__bottom {
+    flex: 1 0 auto;
+}
+
+.card__img>img {
+    border-radius: 20px 20px 0px 0px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.card__prices {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 3px;
+}
+
+.card__price {
+    width: 40%;
+}
+
+.card-title {
+    font-weight: 600;
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin-left: 3px;
+    font-size: 17px;
+}
+
+.card-sub {
+    margin-left: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.count {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 3px;
+}
+
+.add-to-cart {
+    padding: 10px 120px;
+    background-color: rgb(233, 177, 75);
+    border-radius: 10px;
+    color: white;
+    transition: background-color 0.3s linear;
+}
+
+.add-to-cart:hover {
+    background-color: rgb(201, 149, 54);
+}
+
+.btn-keeper {
+    width: 100%;
+    text-align: center;
+    margin: 20px 20px 30px 0px;
+}
+
+.cards {
+    padding: 20px 0px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.container__cards {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, 225px);
+    justify-content: center;
+    justify-items: center;
+    margin: 0 auto;
+    column-gap: 130px;
+}
+
+.list-pages {
+    text-align: center;
+    margin: 50px;
+}
+
+.page-num {
+    display: inline;
+    border-radius: 50%;
+    background-color: rgb(233, 177, 75);
+    font-size: 22px;
+    padding: 15px 20px;
+    box-shadow: 1px 3px 7px rgb(148, 123, 114);
+    transition: 0.2s;
+    color: white;
+}
+
+.page-num:not(:last-of-type) {
+    margin-right: 30px;
+}
+
+.page-num:hover {
+    box-shadow: 1px 8px 10px rgb(148, 123, 114);
+}
+
+.page-link {
+    color: white;
+}
+
+.page-num-active {
+    margin-right: 30px;
+    display: inline;
+    border-radius: 50%;
+    background-color: rgb(168, 128, 55);
+    font-size: 22px;
+    padding: 15px 20px;
+    transition: 0.2s;
+    color: white;
+}

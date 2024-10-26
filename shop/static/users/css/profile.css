@@ -1,0 +1,110 @@
+.profile-background {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#position {
+    margin: 0;
+}
+
+.profile {
+    margin-top: 100px;
+    padding: 0;
+}
+
+.change-password {
+    margin-bottom: 20px;
+    margin-left: 15px;
+    font-size: 18px;
+
+}
+
+.change-password a {
+    color: white;
+    text-decoration: underline;
+}
+
+.change-password a:hover {
+    color: rgb(117, 88, 34);
+}
+
+.date-select {
+    border-radius: 20px;
+    height: 100%;
+    padding: 0px 32px;
+    border: 2px solid rgb(168, 125, 45);
+    border-radius: 20px;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.date-select:hover {
+    box-shadow: 0 5px 10px rgb(104, 88, 82);
+}
+
+.order {
+    margin-bottom: 30px;
+    border-radius: 0 0 14px 14px;
+    border: 7px solid rgb(233, 177, 75);
+    border-top: none;
+}
+
+.order-background-title {
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(233, 177, 75);
+    margin-bottom: 15px;
+}
+
+.order-background {
+    text-align: center;
+    padding-inline: 20px;
+    width: 650px;
+    margin-top: 100px;
+}
+
+.order-title {
+    padding: 10px;
+    align-items: center;
+    background-color: rgb(233, 177, 75);
+    text-align: center;
+    margin-top: 100px;
+    color: white;
+    margin: 0;
+}
+
+.order-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.order-time-create {
+    padding: 10px 0 0;
+}
+
+.order-description {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0 0 14px 14px;
+    padding: 5px;
+}
+
+.order-description img {
+    width: 150px;
+}
+
+.order-description-details {
+    min-width: 420px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.empty-cart {
+    margin-top: 50px;
+    font-size: 35px;
+    font-weight: 600;
+    color: rgb(233, 177, 75);
+}

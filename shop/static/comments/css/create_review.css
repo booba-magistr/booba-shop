@@ -1,0 +1,60 @@
+.review-input {
+    width: 100%;
+    margin: 10px 0;
+    height: 125px;
+    border: 2px solid rgb(168, 125, 45);
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 10px;
+    resize: none;
+}
+
+.review-header {
+    margin-bottom: 15px;
+}
+
+.review-description {
+    min-width: 420px;
+    text-align: justify;
+    line-height: 30px;
+    padding: 5px 0;
+    line-height: 27px;
+}
+
+.review-background-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(233, 177, 75);
+}
+
+.order-background-title-add {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.add-review a {
+    color: white;
+    font-size: 18px;
+    padding: 2px 6px;
+    background-color: rgb(233, 177, 75);
+    transition: 0.2s;
+}
+
+.add-review a:hover {
+    background-color: rgb(117, 88, 34);
+}
+
+.add-review {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.review-name {
+    font-size: 18px;
+    margin: 10px 0;
+}

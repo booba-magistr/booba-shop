@@ -1,0 +1,25 @@
+#login {
+    margin-top: 10%;
+}
+
+.forgot-password {
+    height: 75px;
+    margin-left: 15px;
+}
+
+.forgot-password a {
+    color: white;
+    font-size: 18px;
+}
+
+.forgot-password a:hover {
+    color: rgb(117, 88, 34);
+}
+
+.not-match {
+    color: red;
+}
+
+.forgot-password li {
+    margin: 15px 0;
+}

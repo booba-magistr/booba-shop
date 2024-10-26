@@ -1,0 +1,42 @@
+[
+{
+  "model": "goods.category",
+  "pk": 1,
+  "fields": {
+    "name": "Кухня",
+    "slug": "kitchen"
+  }
+},
+{
+  "model": "goods.category",
+  "pk": 2,
+  "fields": {
+    "name": "Офис",
+    "slug": "office"
+  }
+},
+{
+  "model": "goods.category",
+  "pk": 3,
+  "fields": {
+    "name": "Спальня",
+    "slug": "bedroom"
+  }
+},
+{
+  "model": "goods.category",
+  "pk": 4,
+  "fields": {
+    "name": "Сантехника",
+    "slug": "bathroom"
+  }
+},
+{
+  "model": "goods.category",
+  "pk": 5,
+  "fields": {
+    "name": "Все товары",
+    "slug": "all"
+  }
+}
+]

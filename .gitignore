@@ -4,7 +4,7 @@ __pycache__/
 
 .vscode
 .idea
-/gadalka/static/admin
+/shop/static/admin
 
 
 db.sqlite3

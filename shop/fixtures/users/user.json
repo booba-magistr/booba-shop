@@ -1,0 +1,62 @@
+[
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$qs72JLe3DALHKBFZm8aSKT$ilmbpFb9aJbhLR8PuZB8S18mJ20OJakUUbcux37eS7Q=",
+    "last_login": "2024-09-20T15:18:09.992Z",
+    "is_superuser": false,
+    "username": "booba-magistr",
+    "first_name": "Никита",
+    "last_name": "Трутнев",
+    "email": "mainpo4ta1337@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-08-31T18:25:38.289Z",
+    "img": "",
+    "date_birth": "2001-04-25T00:00:00Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$vxqKrtNapp3S31OR8Pjilx$mszqXClSqZ+ODlvbUrzJvw2nynlalmr4kmd5SGLwjW8=",
+    "last_login": "2024-09-20T07:11:55.402Z",
+    "is_superuser": true,
+    "username": "root",
+    "first_name": "",
+    "last_name": "",
+    "email": "root@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-08-31T18:30:37.161Z",
+    "img": "",
+    "date_birth": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$hwm3oTxC6LCU0jZYbW2nyO$QC2cpMsCc4TUEPrYeXPJp/AkintKpzaA9veHBMpWF78=",
+    "last_login": "2024-09-02T17:11:18.906Z",
+    "is_superuser": false,
+    "username": "ronaldo",
+    "first_name": "Криштиано",
+    "last_name": "Роналдо",
+    "email": "cr7@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-09-02T17:10:37.402Z",
+    "img": "",
+    "date_birth": null,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
