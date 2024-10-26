@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load goods_tags %}
+
+{% block content %}
+<div class="profile-background">
+    <div class="order-background">
+        <div class="review-header">
+            {% if user.is_authenticated %}
+            <div class="order-background-title-add">
+                <div class="review-background-title">
+                    Отзывы наших клиентов
+                </div>
+                <div class="add-review">
+                    <a href="{% url "review:create-review" %}">Добавить отзыв</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="order-background-title">
+                Отзывы наших клиентов
+            </div>
+            {% endif %}
+        </div>
+        <form method="get" class="filters">
+            <div class="filters-choice">
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="-time_create"
+                onMouseDown="this.isChecked=this.checked;" 
+                onClick="this.checked=!this.isChecked;" 
+                {% if request.GET.order_by == "-time_create" %}checked{% endif %}>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Сначала новые
+                </label>
+            </div>
+            <div class="filters-choice">
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="time_create"
+                onMouseDown="this.isChecked=this.checked;" 
+                onClick="this.checked=!this.isChecked;"  
+                {% if request.GET.order_by == "time_create" %}checked{% endif %}>
+                <label class="form-check-label" for="flexRadioDefault3">
+                    Сначала старые
+                </label>
+            </div>
+            <button type="submit" class="filters-btn">Применить</button>
+        </form>
+        {% for review in reviews %}
+        <div class="order">
+            <div class="order-title">
+                <div class="order-info">
+                    <div class="order-title-name">
+                        {{ review.user.first_name }} {{ review.user.last_name }}
+                    </div>
+                    <div>
+                        {{ review.time_create|date:'d.m.Y' }}
+                    </div>
+                </div>
+            </div>
+            <div class="order-description">
+                <div class="review-description">
+                    <p>{{ review.review }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="list-pages">
+            <ul>
+                {% if page_obj.has_previous %}
+                   <li class="page-num">
+                        <a href="?{% change_params page=page_obj.previous_page_number %}" class='page-link'>&lt;</a>
+                   </li> 
+                {% endif %}
+                {% for page in paginator.page_range %}
+                    {% if page_obj.number == page %}
+                        <li class="page-num-active"> {{ page }} </li>
+                    {% elif page >= page_obj.number|add:-2 and page <= page_obj.number|add:2 %}
+                        <li class="page-num">
+                            <a href="?{% change_params page=page %}" class='page-link'>{{ page }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                <li class="page-num">
+                     <a href="?{% change_params page=page_obj.next_page_number %}" class='page-link'>&gt;</a>
+                </li> 
+             {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}
