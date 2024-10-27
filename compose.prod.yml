@@ -1,14 +1,14 @@
 services:
   web:
     build:
-      context: ./shop_ajax
+      context: ./shop
       dockerfile: Dockerfile.prod
     image: shop_prod:1.0.0
     command: gunicorn shop.wsgi:application --bind 0.0.0.0:8000 --access-logfile "-"
     expose:
       - 8000
     env_file:
-      - ./shop_ajax/.env.prod
+      - ./shop/.env.prod
     volumes:
       - static_volume:/usr/src/app/static
       - media_volume:/usr/src/app/media

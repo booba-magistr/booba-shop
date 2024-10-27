@@ -1,20 +1,20 @@
 services:
   web:
-    build: ./shop_ajax
+    build: ./shop
     image: shop:1.0.0
     container_name: shop
     develop:
       watch:
         - action: sync
-          path: ./shop_ajax
+          path: ./shop
           target: /usr/src/app
         - action: rebuild
-          path: ./shop_ajax/requirements.txt
+          path: ./shop/requirements.txt
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - 127.0.0.1:8000:8000
     env_file:
-      - ./shop_ajax/.env
+      - ./shop/.env
   
   db:
     image: postgres:16-alpine
